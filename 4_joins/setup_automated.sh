@@ -66,4 +66,7 @@ EOF
 
 echo "--- Setup Complete! ---"
 psql -c "SELECT COUNT(*) AS fact_rows FROM fact_orders;"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 36f144a (	modified:   .devcontainer/devcontainer.json)

@@ -74,4 +74,7 @@ CREATE TABLE fact_orders (
     shipping_cost   NUMERIC(10,2),
     order_priority  TEXT
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 36f144a (	modified:   .devcontainer/devcontainer.json)
