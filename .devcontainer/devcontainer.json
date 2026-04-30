@@ -1,0 +1,30 @@
+{
+  "name": "SQL Lab Environment",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mtxr.sqltools",
+        "mtxr.sqltools-driver-pg"
+      ],
+      "settings": {
+        "sqltools.connections": [
+          {
+            "name": "Classroom DB",
+            "driver": "PostgreSQL",
+            "server": "localhost",
+            "port": 5432,
+            "database": "classroom",
+            "username": "postgres",
+            "askForPassword": false,
+            "password": "password123"
+          }
+        ]
+      }
+    }
+  },
+  "forwardPorts": [5432],
+  "postCreateCommand": "PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -f /workspaces/${localWorkspaceFolderBasename}/setup.sql && for seed in $(find /workspaces -name 'seed.sql' | sort); do PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -f \"$seed\"; done"
+}
