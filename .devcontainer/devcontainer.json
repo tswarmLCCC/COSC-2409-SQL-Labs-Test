@@ -26,5 +26,6 @@
     }
   },
   "forwardPorts": [5432],
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client && PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -f /workspaces/${localWorkspaceFolderBasename}/setup.sql && for seed in $(find /workspaces -name 'seed.sql' | sort); do PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -f \"$seed\"; done"
+  "onCreateCommand": "sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client",
+  "postCreateCommand": "until PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -c '\\q' 2>/dev/null; do sleep 1; done && PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -f /workspaces/${localWorkspaceFolderBasename}/setup.sql && for seed in $(find /workspaces -name 'seed.sql' | sort); do PGPASSWORD=password123 psql -h localhost -U postgres -d classroom -f \"$seed\"; done"
 }
