@@ -4,7 +4,8 @@ This course is an intensive sprint through enterprise PostgreSQL. We use the **N
 
 **Primary Resource:** [Neon PostgreSQL Tutorial](https://neon.com/postgresql/tutorial)
 
-**Environment:** GitHub Codespaces & LCCC "Eagle AI" Nutanix Cluster
+
+**Environment:** GitHub Codespaces & [FreeCodeCamp.org - Learn PostgreSQL Tutorial - Full Course for Beginners](https://www.youtube.com/watch?v=qw--VYLpxG4)
 
 ## **Course Philosophy: The "AI Practitioner" Model**
 
